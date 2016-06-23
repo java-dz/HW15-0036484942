@@ -1,0 +1,143 @@
+.error {
+	font-family: arial;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #FF0000;
+}
+
+.values-table {
+	color: #333333;
+	font-family: Helvetica, Arial, sans-serif;
+	width: 30%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 5px solid #666666;
+}
+
+.values-table td, th {
+	border: 1px solid transparent;
+	height: 30px;
+	transition: all 0.3s;
+	width: 33.33%;
+	height: 40px;
+}
+
+.values-table th {
+	background: #666666;
+	font-weight: bold;
+}
+
+.values-table td {
+	background: #FAFAFA;
+	text-align: center;
+	border-right: solid 1px #F1F1F1;
+	border-left: solid 1px #F1F1F1;
+}
+
+.values-table tr:nth-child(even) td {
+	background: #F1F1F1;
+}
+
+.values-table tr:nth-child(odd) td {
+	background: #FEFEFE;
+}
+
+.values-table tr td:hover {
+	background: #666666;
+	color: #FFFFFF;
+}
+
+.button {
+	margin: auto;
+	width: 100%;
+	-webkit-transition: all .2s;
+	line-height: 45px;
+	text-align: center;
+	font-weight: bold;
+	color: #333;
+	border-radius: 2px;
+	fancy-button-shadow: 0px 0px 2px rgba(0, 0, 0, .5), 1px 1px 5px rgba(0, 0, 0, .3);
+	cursor: pointer;
+}
+
+.button a {
+	font-family: Helvetica, Tahoma, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	text-decoration: none;
+}
+
+#toolbar {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding-top: 5px;
+	padding-right: 10px;
+}
+
+#toolbar p {
+	display: inline-block;
+	padding-left: 7px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: gold;
+}
+
+form * {
+	margin-top: 7px;
+}
+
+div textarea {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.balloon {
+	border-radius: 25px;
+	border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.balloon pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.balloon img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+#balloon-comment {
+	display: block;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#balloon-comment .date {
+	padding-top: 0px;
+}
+
+.smaller {
+	display: inline-block;
+	font-size: 65%;
+}
+
+.date {
+	padding-top: 20px;
+}
+
+.author-options p {
+	display: inline-block;
+	padding-left: 5px;
+}
