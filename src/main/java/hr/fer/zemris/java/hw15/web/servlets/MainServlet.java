@@ -24,41 +24,41 @@ import hr.fer.zemris.java.hw15.util.LoginForm;
  */
 @WebServlet(name="main", urlPatterns={"/servleti/main"})
 public class MainServlet extends HttpServlet {
-	/** Serialization UID. */
-	private static final long serialVersionUID = 1L;
+    /** Serialization UID. */
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<BlogUser> users = DAOProvider.getDAO().getUsers();
-		req.setAttribute("users", users);
-		
-		LoginForm form = new LoginForm();
-		form.fillFromHttpRequest(req);
-		
-		req.setAttribute("form", form);
-		
-		form.validate();
-		if (form.hasErrors()) {
-			req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req, resp);
-			return;
-		}
-		
-		// Get user from database and set current session
-		BlogUser user = DAOProvider.getDAO().getUserByNick(form.getNick());
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<BlogUser> users = DAOProvider.getDAO().getUsers();
+        req.setAttribute("users", users);
 
-		req.getSession().setAttribute("current.user.id", user.getId());
-		req.getSession().setAttribute("current.user.fn", user.getFirstName());
-		req.getSession().setAttribute("current.user.ln", user.getLastName());
-		req.getSession().setAttribute("current.user.nick", user.getNick());
-		resp.sendRedirect(req.getContextPath() + "/servleti/main");
-	}
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<BlogUser> users = DAOProvider.getDAO().getUsers();
-		
-		req.setAttribute("users", users);
-		req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req, resp);
-	}
-	
+        LoginForm form = new LoginForm();
+        form.fillFromHttpRequest(req);
+
+        req.setAttribute("form", form);
+
+        form.validate();
+        if (form.hasErrors()) {
+            req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req, resp);
+            return;
+        }
+
+        // Get user from database and set current session
+        BlogUser user = DAOProvider.getDAO().getUserByNick(form.getNick());
+
+        req.getSession().setAttribute("current.user.id", user.getId());
+        req.getSession().setAttribute("current.user.fn", user.getFirstName());
+        req.getSession().setAttribute("current.user.ln", user.getLastName());
+        req.getSession().setAttribute("current.user.nick", user.getNick());
+        resp.sendRedirect(req.getContextPath() + "/servleti/main");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<BlogUser> users = DAOProvider.getDAO().getUsers();
+
+        req.setAttribute("users", users);
+        req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req, resp);
+    }
+
 }

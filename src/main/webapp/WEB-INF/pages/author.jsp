@@ -4,12 +4,12 @@
 <%
   Object nick = session.getAttribute("current.user.nick");
   boolean loggedIn = (nick != null);
-  
+
   String username;
   if (loggedIn) {
-	  username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
+      username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
   } else {
-	  username = "Anonymous";
+      username = "Anonymous";
   }
 %>
 
@@ -30,7 +30,7 @@
       </tr>
       </c:forEach>
     </table>
-    
+
     <c:if test="${authorOptions}">
     <div class="author-options">
       <p><a href="/blog/servleti/author/${author.nick}/new">New</a></p>

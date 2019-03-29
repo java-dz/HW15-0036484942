@@ -4,12 +4,12 @@
 <%
   Object nick = session.getAttribute("current.user.nick");
   boolean loggedIn = (nick != null);
-  
+
   String username;
   if (loggedIn) {
-	  username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
+      username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
   } else {
-	  username = "Anonymous";
+      username = "Anonymous";
   }
 %>
 
@@ -22,7 +22,7 @@
     <h2>Error</h2>
     <p><%= request.getAttribute("error") %></p>
     <p>Go <a href="javascript: history.go(-1)">Back</a> or go <a href="/blog/servleti/main">Home</a></p>
-    
+
     <div id="toolbar">
       <p><%=username%></p>
       <p><a href="javascript: history.go(-1)">Back</a></p>

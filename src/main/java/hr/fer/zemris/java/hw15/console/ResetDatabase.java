@@ -40,200 +40,200 @@ import javax.persistence.Persistence;
  */
 public class ResetDatabase {
 
-	/**
-	 * Program entry point.
-	 * 
-	 * @param args not used
-	 * @throws InterruptedException ignored in single-threaded application
-	 */
-	public static void main(String[] args) throws InterruptedException {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("baza.podataka.za.blog");  
+    /**
+     * Program entry point.
+     *
+     * @param args not used
+     * @throws InterruptedException ignored in single-threaded application
+     */
+    public static void main(String[] args) throws InterruptedException {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("baza.podataka.za.blog");
 
-		// Step 0 - clear all previous entries !!!CAUTION!!!
-		// -----------------------------------------
-		clearDatabase(emf);
-		
-		// Step 1 - creating new users...
-		// -----------------------------------------
-		BlogUser user = addPerica(emf);
-		
-		// step 2 - creating new blog posts...
-		// -----------------------------------------
-		BlogEntry blogEntry1 = addEntry(emf, user, "Moj prvi blog", "Ovo je moj prvi blog zapis.");
-		Thread.sleep(500);
-		BlogEntry blogEntry2 = addEntry(emf, user, "Objava koja ima nove redove", "Ova\nobjava\nje\nproširena\nkroz\nvišestruke       \nnove\n			redove");
-		Thread.sleep(500);
-		BlogEntry blogEntry3 = addEntry(emf, user, "Stylesheet (CSS3)", "Isječak CSS-a:\n\n.error {\n\tfont-family: arial;\n\tfont-style: italic;\n\tfont-size: 0.9em;\n\tcolor: #FF0000;\n}");
-		Thread.sleep(500);
-		BlogEntry blogEntry4 = addEntry(emf, user, "Ovo je jedan blog post koji ima jako jako dugačak naslov, (ima točno 80 znakova)", "Ovaj naslov ima točno 80 znakova, izbrojao sam <a href=\"http://www.lettercount.com/\">ovdje</a>.\n  Kad bi naslov bio duži od 80 znakova, ovo bi se desilo:\n  <hr width=\"95%\">\n  <img src=\"http://www.deviantpics.com/images/2016/06/22/too_long.png\" alt=\"Title too long\" />\n  <hr width=\"95%\">");
-		Thread.sleep(500);
-		BlogEntry blogEntry5 = addEntry(emf, user, "Mačke", "<img src=\"http://i.imgur.com/FAl6Tks.jpg\" alt=\"Puno puno macaka\" />");
-		
-		// Step 3 - adding a few comments...
-		// -----------------------------------------
-		addComment(emf, blogEntry1.getId(), "ivica@ivo.hr", "Blog ti je super!");
-		Thread.sleep(500);
-		addComment(emf, blogEntry1.getId(), "stefica@stef.org", "Vau!");
-		Thread.sleep(500);
-		addComment(emf, blogEntry1.getId(), "ivica@ivo.hr", "Još jedan komentar.");
-		
-		Thread.sleep(500);
-		addComment(emf, blogEntry2.getId(), "fanta@stic.com", "Fantastično ti je ovo! Wow!!!");
-		
-		Thread.sleep(500);
-		addComment(emf, blogEntry3.getId(), "w3@schools.com", "A CSS je okej... Mislim može proć.");
+        // Step 0 - clear all previous entries !!!CAUTION!!!
+        // -----------------------------------------
+        clearDatabase(emf);
 
-		Thread.sleep(500);
-		addComment(emf, blogEntry4.getId(), "perica@peric.hr", "Kužite kao tu je slika");
-		Thread.sleep(500);
-		addComment(emf, blogEntry4.getId(), "ivica@ivo.hr", "kužimo da nismo glupi -.-.-.-.-.-.-.-.-.-..-");
-		
-		Thread.sleep(500);
-		addComment(emf, blogEntry5.getId(), "cat@kittens.co.uk", "wow omg kittens omg i luv cats pls *o*");
-		
-		emf.close();
-	}
+        // Step 1 - creating new users...
+        // -----------------------------------------
+        BlogUser user = addPerica(emf);
 
-	/**
-	 * Clears the blog database by deleting <strong>all</strong> blog entries in
-	 * this order:
-	 * <ol>
-	 * <li>first, all blog comments are deleted from the <tt>blog_comments</tt>
-	 * table,
-	 * <li>second, all blog entries are deleted from the <tt>blog_entries</tt>
-	 * table,
-	 * <li>third, all blog users are deleted from the <tt>blog_users</tt> table.
-	 * </ol>
-	 * <p>
-	 * The order of deleting is important in case these models don't use the
-	 * <tt>CASCADE</tt> delete type.
-	 * 
-	 * @param emf an entity manager factory
-	 */
-	private static void clearDatabase(EntityManagerFactory emf) {
-		System.err.println("Clearing blog database.");
-		
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-		
-		int deletedComments = em.createQuery("DELETE FROM BlogComment").executeUpdate();
-		System.err.println("Deleted " + deletedComments + " comments.");
-		
-		int deletedEntries = em.createQuery("DELETE FROM BlogEntry").executeUpdate();
-		System.err.println("Deleted " + deletedEntries + " entries.");
-		
-		int deletedUsers = em.createQuery("DELETE FROM BlogUser").executeUpdate();
-		System.err.println("Deleted " + deletedUsers + " users.");
-		
-		em.getTransaction().commit();
-		em.close();
+        // step 2 - creating new blog posts...
+        // -----------------------------------------
+        BlogEntry blogEntry1 = addEntry(emf, user, "Moj prvi blog", "Ovo je moj prvi blog zapis.");
+        Thread.sleep(500);
+        BlogEntry blogEntry2 = addEntry(emf, user, "Objava koja ima nove redove", "Ova\nobjava\nje\nproširena\nkroz\nvišestruke       \nnove\n            redove");
+        Thread.sleep(500);
+        BlogEntry blogEntry3 = addEntry(emf, user, "Stylesheet (CSS3)", "Isječak CSS-a:\n\n.error {\n\tfont-family: arial;\n\tfont-style: italic;\n\tfont-size: 0.9em;\n\tcolor: #FF0000;\n}");
+        Thread.sleep(500);
+        BlogEntry blogEntry4 = addEntry(emf, user, "Ovo je jedan blog post koji ima jako jako dugačak naslov, (ima točno 80 znakova)", "Ovaj naslov ima točno 80 znakova, izbrojao sam <a href=\"http://www.lettercount.com/\">ovdje</a>.\n  Kad bi naslov bio duži od 80 znakova, ovo bi se desilo:\n  <hr width=\"95%\">\n  <img src=\"http://www.deviantpics.com/images/2016/06/22/too_long.png\" alt=\"Title too long\" />\n  <hr width=\"95%\">");
+        Thread.sleep(500);
+        BlogEntry blogEntry5 = addEntry(emf, user, "Mačke", "<img src=\"http://i.imgur.com/FAl6Tks.jpg\" alt=\"Puno puno macaka\" />");
 
-		System.err.println("Finished clearing blog database.");
-	}
+        // Step 3 - adding a few comments...
+        // -----------------------------------------
+        addComment(emf, blogEntry1.getId(), "ivica@ivo.hr", "Blog ti je super!");
+        Thread.sleep(500);
+        addComment(emf, blogEntry1.getId(), "stefica@stef.org", "Vau!");
+        Thread.sleep(500);
+        addComment(emf, blogEntry1.getId(), "ivica@ivo.hr", "Još jedan komentar.");
 
-	/**
-	 * Adds the user <tt>perica</tt> to the <tt>blog_users</tt> table in the
-	 * blog database using the provided entity manager factory <tt>emf</tt> to
-	 * produce an entity manager which is used for the whole transaction
-	 * progress. The blog user is returned after the transaction has been
-	 * committed.
-	 * 
-	 * @param emf an entity manager factory
-	 * @return the newly created blog user <tt>perica</tt>
-	 */
-	private static BlogUser addPerica(EntityManagerFactory emf) {
-		System.err.println("Adding user perica.");
-		
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-		
-		BlogUser blogUser = new BlogUser();
-		blogUser.setFirstName("Perica");
-		blogUser.setLastName("Perić");
-		blogUser.setNick("perica");
-		blogUser.setEmail("perica@peric.hr");
-		blogUser.setPasswordHash(ServletUtil.generatePasswordHash("perica"));
-		
-		em.persist(blogUser);
-		
-		em.getTransaction().commit();
-		em.close();
+        Thread.sleep(500);
+        addComment(emf, blogEntry2.getId(), "fanta@stic.com", "Fantastično ti je ovo! Wow!!!");
 
-		System.err.println("Finished adding user perica.");
-		return blogUser;
-	}
+        Thread.sleep(500);
+        addComment(emf, blogEntry3.getId(), "w3@schools.com", "A CSS je okej... Mislim može proć.");
 
-	/**
-	 * Adds the blog entry created by the specified <tt>creator</tt> with the
-	 * specified <tt>title</tt> and <tt>text</tt> to the <tt>blog_entries</tt>
-	 * table in the blog database. The blog entry is added using the provided
-	 * entity manager factory <tt>emf</tt> to produce an entity manager which is
-	 * used for the whole transaction progress. The blog entry is returned after
-	 * the transaction has been committed.
-	 * 
-	 * @param emf an entity manager factory
-	 * @param creator the blog entry creator
-	 * @param title title of the blog entry
-	 * @param text text of the blog entry
-	 * @return the newly created blog entry
-	 */
-	private static BlogEntry addEntry(EntityManagerFactory emf, BlogUser creator, String title, String text) {
-		System.err.println("Adding entry " + title);
-		
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-		
-		BlogEntry blogEntry = new BlogEntry();
-		blogEntry.setCreatedAt(new Date());
-		blogEntry.setLastModifiedAt(blogEntry.getCreatedAt());
-		blogEntry.setTitle(title);
-		blogEntry.setText(text);
-		blogEntry.setCreator(creator);
-		
-		em.persist(blogEntry);
-		
-		em.getTransaction().commit();
-		em.close();
-		
-		System.err.println("Finished adding entry " + title);
-		return blogEntry;
-	}
-	
-	/**
-	 * Adds the blog comment with the specified <tt>message</tt> to a blog entry
-	 * with the specified <tt>blogEntryID</tt> posted by a user with the
-	 * specified <tt>email</tt> to the <tt>blog_comments</tt> table in the blog
-	 * database. The blog comment is added using the provided entity manager
-	 * factory <tt>emf</tt> to produce an entity manager which is used for the
-	 * whole transaction progress.
-	 * 
-	 * @param emf an entity manager factory
-	 * @param blogEntryID ID of the blog entry to which the comment is to be added
-	 * @param email email of the user posting the comment
-	 * @param message comment message
-	 */
-	private static void addComment(EntityManagerFactory emf, Long blogEntryID, String email, String message) {
-		System.err.println("Adding comment by " + email);
-		
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
+        Thread.sleep(500);
+        addComment(emf, blogEntry4.getId(), "perica@peric.hr", "Kužite kao tu je slika");
+        Thread.sleep(500);
+        addComment(emf, blogEntry4.getId(), "ivica@ivo.hr", "kužimo da nismo glupi -.-.-.-.-.-.-.-.-.-..-");
 
-		BlogEntry blogEntry = em.find(BlogEntry.class, blogEntryID);
-		
-		BlogComment blogComment = new BlogComment();
-		blogComment.setUsersEMail(email);
-		blogComment.setPostedOn(new Date());
-		blogComment.setMessage(message);
-		blogComment.setBlogEntry(blogEntry);
-		
-		em.persist(blogComment);
+        Thread.sleep(500);
+        addComment(emf, blogEntry5.getId(), "cat@kittens.co.uk", "wow omg kittens omg i luv cats pls *o*");
 
-		blogEntry.getComments().add(blogComment);
-		
-		em.getTransaction().commit();
-		em.close();
-		
-		System.err.println("Finished adding comment by " + email);
-	}
-	
+        emf.close();
+    }
+
+    /**
+     * Clears the blog database by deleting <strong>all</strong> blog entries in
+     * this order:
+     * <ol>
+     * <li>first, all blog comments are deleted from the <tt>blog_comments</tt>
+     * table,
+     * <li>second, all blog entries are deleted from the <tt>blog_entries</tt>
+     * table,
+     * <li>third, all blog users are deleted from the <tt>blog_users</tt> table.
+     * </ol>
+     * <p>
+     * The order of deleting is important in case these models don't use the
+     * <tt>CASCADE</tt> delete type.
+     *
+     * @param emf an entity manager factory
+     */
+    private static void clearDatabase(EntityManagerFactory emf) {
+        System.err.println("Clearing blog database.");
+
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        int deletedComments = em.createQuery("DELETE FROM BlogComment").executeUpdate();
+        System.err.println("Deleted " + deletedComments + " comments.");
+
+        int deletedEntries = em.createQuery("DELETE FROM BlogEntry").executeUpdate();
+        System.err.println("Deleted " + deletedEntries + " entries.");
+
+        int deletedUsers = em.createQuery("DELETE FROM BlogUser").executeUpdate();
+        System.err.println("Deleted " + deletedUsers + " users.");
+
+        em.getTransaction().commit();
+        em.close();
+
+        System.err.println("Finished clearing blog database.");
+    }
+
+    /**
+     * Adds the user <tt>perica</tt> to the <tt>blog_users</tt> table in the
+     * blog database using the provided entity manager factory <tt>emf</tt> to
+     * produce an entity manager which is used for the whole transaction
+     * progress. The blog user is returned after the transaction has been
+     * committed.
+     *
+     * @param emf an entity manager factory
+     * @return the newly created blog user <tt>perica</tt>
+     */
+    private static BlogUser addPerica(EntityManagerFactory emf) {
+        System.err.println("Adding user perica.");
+
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        BlogUser blogUser = new BlogUser();
+        blogUser.setFirstName("Perica");
+        blogUser.setLastName("Perić");
+        blogUser.setNick("perica");
+        blogUser.setEmail("perica@peric.hr");
+        blogUser.setPasswordHash(ServletUtil.generatePasswordHash("perica"));
+
+        em.persist(blogUser);
+
+        em.getTransaction().commit();
+        em.close();
+
+        System.err.println("Finished adding user perica.");
+        return blogUser;
+    }
+
+    /**
+     * Adds the blog entry created by the specified <tt>creator</tt> with the
+     * specified <tt>title</tt> and <tt>text</tt> to the <tt>blog_entries</tt>
+     * table in the blog database. The blog entry is added using the provided
+     * entity manager factory <tt>emf</tt> to produce an entity manager which is
+     * used for the whole transaction progress. The blog entry is returned after
+     * the transaction has been committed.
+     *
+     * @param emf an entity manager factory
+     * @param creator the blog entry creator
+     * @param title title of the blog entry
+     * @param text text of the blog entry
+     * @return the newly created blog entry
+     */
+    private static BlogEntry addEntry(EntityManagerFactory emf, BlogUser creator, String title, String text) {
+        System.err.println("Adding entry " + title);
+
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        BlogEntry blogEntry = new BlogEntry();
+        blogEntry.setCreatedAt(new Date());
+        blogEntry.setLastModifiedAt(blogEntry.getCreatedAt());
+        blogEntry.setTitle(title);
+        blogEntry.setText(text);
+        blogEntry.setCreator(creator);
+
+        em.persist(blogEntry);
+
+        em.getTransaction().commit();
+        em.close();
+
+        System.err.println("Finished adding entry " + title);
+        return blogEntry;
+    }
+
+    /**
+     * Adds the blog comment with the specified <tt>message</tt> to a blog entry
+     * with the specified <tt>blogEntryID</tt> posted by a user with the
+     * specified <tt>email</tt> to the <tt>blog_comments</tt> table in the blog
+     * database. The blog comment is added using the provided entity manager
+     * factory <tt>emf</tt> to produce an entity manager which is used for the
+     * whole transaction progress.
+     *
+     * @param emf an entity manager factory
+     * @param blogEntryID ID of the blog entry to which the comment is to be added
+     * @param email email of the user posting the comment
+     * @param message comment message
+     */
+    private static void addComment(EntityManagerFactory emf, Long blogEntryID, String email, String message) {
+        System.err.println("Adding comment by " + email);
+
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        BlogEntry blogEntry = em.find(BlogEntry.class, blogEntryID);
+
+        BlogComment blogComment = new BlogComment();
+        blogComment.setUsersEMail(email);
+        blogComment.setPostedOn(new Date());
+        blogComment.setMessage(message);
+        blogComment.setBlogEntry(blogEntry);
+
+        em.persist(blogComment);
+
+        blogEntry.getComments().add(blogComment);
+
+        em.getTransaction().commit();
+        em.close();
+
+        System.err.println("Finished adding comment by " + email);
+    }
+
 }

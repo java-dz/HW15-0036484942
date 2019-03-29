@@ -13,24 +13,24 @@ import javax.persistence.EntityManagerFactory;
  */
 public class JPAEMFProvider {
 
-	/** Current instance of entity manager factory. */
-	public static EntityManagerFactory emf;
+    /** Current instance of entity manager factory. */
+    public static EntityManagerFactory emf;
 
-	/**
-	 * Returns an instance of the entity manager factory.
-	 * 
-	 * @return an instance of the entity manager factory
-	 */
-	public static EntityManagerFactory getEmf() {
-		return emf;
-	}
+    /**
+     * Returns an instance of the entity manager factory.
+     *
+     * @return an instance of the entity manager factory
+     */
+    public static EntityManagerFactory getEmf() {
+        return emf;
+    }
 
-	/**
-	 * Sets the entity manager factory to the specified <tt>emf</tt>.
-	 * 
-	 * @param emf the entity manager factory to be set
-	 */
-	public static void setEmf(EntityManagerFactory emf) {
-		JPAEMFProvider.emf = emf;
-	}
+    /**
+     * Sets the entity manager factory to the specified <tt>emf</tt>.
+     *
+     * @param emf the entity manager factory to be set
+     */
+    public static void setEmf(EntityManagerFactory emf) {
+        JPAEMFProvider.emf = emf;
+    }
 }

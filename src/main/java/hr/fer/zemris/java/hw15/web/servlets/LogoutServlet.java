@@ -16,13 +16,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name="logout", urlPatterns={"/servleti/logout"})
 public class LogoutServlet extends HttpServlet {
-	/** Serialization UID. */
-	private static final long serialVersionUID = 1L;
+    /** Serialization UID. */
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getSession().invalidate();
-		resp.sendRedirect(req.getContextPath() + "/servleti/main");
-	}
-	
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getSession().invalidate();
+        resp.sendRedirect(req.getContextPath() + "/servleti/main");
+    }
+
 }

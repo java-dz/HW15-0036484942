@@ -4,12 +4,12 @@
 <%
   Object nick = session.getAttribute("current.user.nick");
   boolean loggedIn = (nick != null);
-  
+
   String username;
   if (loggedIn) {
-	  username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
+      username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
   } else {
-	  username = "Anonymous";
+      username = "Anonymous";
   }
 %>
 
@@ -21,10 +21,10 @@
   <body>
     <c:if test="<%= !loggedIn %>">
     <!-- When the user is not logged in -->
-    
+
     <h3>Have an account? Login here:</h3>
     <form action="main" method="post">
-    
+
       Nickname <input type="text" name="nick" value='<c:out value="${form.nick}"/>' size="30">
       <c:if test="${form.hasError('nick')}">
       <div class="error"><c:out value="${form.getError('nick')}"/></div>
@@ -36,20 +36,20 @@
       </c:if><br>
 
       <input type="submit" value="Login">
-      
+
     </form>
-    
+
     <p>New on this page? Register <a href="register">here</a></p>
     </c:if>
-    
+
     <h3>Blog authors</h3>
     <table class="values-table">
       <c:forEach var="user" items="${users}">
       <tr><td class="button"><a href="author/${user.nick}">${user.nick}</a></td></tr>
       </c:forEach>
     </table>
-    
-    
+
+
     <div id="toolbar">
       <c:choose>
       <c:when test="<%= loggedIn %>">

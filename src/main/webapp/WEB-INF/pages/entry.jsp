@@ -7,14 +7,14 @@
 <%
   Object nick = session.getAttribute("current.user.nick");
   boolean loggedIn = (nick != null);
-  
+
   String username;
   if (loggedIn) {
-	  username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
+      username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
   } else {
-	  username = "Anonymous";
+      username = "Anonymous";
   }
-  
+
   BlogUser author = (BlogUser) request.getAttribute("author");
 %>
 
@@ -74,7 +74,7 @@
         <div class="error"><c:out value="${form.getError('message')}"/></div>
         </c:if><br>
       </div>
-      
+
       <input type="submit" value="Submit">
     </form>
 

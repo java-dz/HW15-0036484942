@@ -22,37 +22,37 @@ import hr.fer.zemris.java.hw15.util.RegistrationForm;
  */
 @WebServlet(name="register", urlPatterns={"/servleti/register"})
 public class RegisterServlet extends HttpServlet {
-	/** Serialization UID. */
-	private static final long serialVersionUID = 1L;
+    /** Serialization UID. */
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RegistrationForm form = new RegistrationForm();
-		form.fillFromHttpRequest(req);
-		
-		req.setAttribute("form", form);
-		
-		form.validate();
-		if (form.hasErrors()) {
-			req.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(req, resp);
-			return;
-		}
-		
-		// Fill user data and add to database
-		BlogUser user = new BlogUser();
-		form.fillBlogUser(user);
-		DAOProvider.getDAO().addBlogUser(user);
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RegistrationForm form = new RegistrationForm();
+        form.fillFromHttpRequest(req);
 
-		req.getSession().setAttribute("current.user.id", user.getId());
-		req.getSession().setAttribute("current.user.fn", user.getFirstName());
-		req.getSession().setAttribute("current.user.ln", user.getLastName());
-		req.getSession().setAttribute("current.user.nick", user.getNick());
-		resp.sendRedirect(req.getContextPath() + "/servleti/main");
-	}
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(req, resp);
-	}
-	
+        req.setAttribute("form", form);
+
+        form.validate();
+        if (form.hasErrors()) {
+            req.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(req, resp);
+            return;
+        }
+
+        // Fill user data and add to database
+        BlogUser user = new BlogUser();
+        form.fillBlogUser(user);
+        DAOProvider.getDAO().addBlogUser(user);
+
+        req.getSession().setAttribute("current.user.id", user.getId());
+        req.getSession().setAttribute("current.user.fn", user.getFirstName());
+        req.getSession().setAttribute("current.user.ln", user.getLastName());
+        req.getSession().setAttribute("current.user.nick", user.getNick());
+        resp.sendRedirect(req.getContextPath() + "/servleti/main");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(req, resp);
+    }
+
 }

@@ -16,69 +16,69 @@
 
   <dependencies>
     <dependency>
-  	  <groupId>junit</groupId>
-  	  <artifactId>junit</artifactId>
-  	  <version>4.12</version>
-  	  <scope>test</scope>
-  	</dependency>
-  	
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
       <version>5.1.0.Final</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-ehcache</artifactId>
       <version>5.1.0.Final</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-c3p0</artifactId>
       <version>5.1.0.Final</version>
     </dependency>
-    
+
     <dependency>
-  		<groupId>javax.servlet</groupId>
-  		<artifactId>javax.servlet-api</artifactId>
-  		<version>3.1.0</version>
-  		<scope>provided</scope>
-  	</dependency>
-  	
-  	<dependency>
-  		<groupId>javax.servlet.jsp</groupId>
-  		<artifactId>javax.servlet.jsp-api</artifactId>
-  		<version>2.3.1</version>
-  		<scope>provided</scope>
-  	</dependency>
-  	
-  	<dependency>
-  		<groupId>javax.servlet.jsp.jstl</groupId>
-  		<artifactId>javax.servlet.jsp.jstl-api</artifactId>
-  		<version>1.2.1</version>
-  	</dependency>
-  	
-  	<dependency>
-  		<groupId>org.glassfish.web</groupId>
-  		<artifactId>javax.servlet.jsp.jstl</artifactId>
-  		<version>1.2.1</version>
-  		<exclusions>
-  			<exclusion>
-  				<artifactId>jstl-api</artifactId>
-  				<groupId>javax.servlet.jsp.jstl</groupId>
-  			</exclusion>
-  		</exclusions>
-  	</dependency>
-    
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
+      <version>2.3.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet.jsp.jstl</groupId>
+      <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>javax.servlet.jsp.jstl</artifactId>
+      <version>1.2.1</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>jstl-api</artifactId>
+          <groupId>javax.servlet.jsp.jstl</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
     <!-- http://mvnrepository.com/artifact/org.apache.derby/derbyclient -->
     <dependency>
       <groupId>org.apache.derby</groupId>
       <artifactId>derbyclient</artifactId>
       <version>10.12.1.1</version>
     </dependency>
-    
+
     <!-- http://mvnrepository.com/artifact/com.mchange/c3p0 -->
     <dependency>
       <groupId>com.mchange</groupId>
@@ -86,7 +86,7 @@
       <version>0.9.5.2</version>
     </dependency>
   </dependencies>
-  
+
   <build>
     <plugins>
       <plugin>
@@ -116,8 +116,8 @@
         </configuration>
       </plugin>
     </plugins>
-    
+
     <finalName>blog</finalName>
   </build>
-  
+
 </project>

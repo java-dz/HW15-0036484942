@@ -45,198 +45,198 @@ import javax.persistence.TemporalType;
  * @author Mario Bobic
  */
 @NamedQueries({
-	@NamedQuery(name="BlogEntry.upit1",query="SELECT b FROM BlogComment AS b WHERE b.blogEntry=:be AND b.postedOn>:when")
+    @NamedQuery(name="BlogEntry.upit1",query="SELECT b FROM BlogComment AS b WHERE b.blogEntry=:be AND b.postedOn>:when")
 })
 @Entity
 @Table(name="blog_entries")
 @Cacheable(true)
 public class BlogEntry {
-	
-	/** Maximum length of the blog entry title. */
-	public static final int TITLE_LEN = 80;
 
-	/** Maximum length of the blog entry text. */
-	public static final int TEXT_LEN = 4*1024;
+    /** Maximum length of the blog entry title. */
+    public static final int TITLE_LEN = 80;
 
-	/** ID of the blog entry. */
-	@Id @GeneratedValue
-	private Long id;
+    /** Maximum length of the blog entry text. */
+    public static final int TEXT_LEN = 4*1024;
 
-	/** A list of blog comments on this entry. */
-	@OneToMany(mappedBy="blogEntry", fetch=FetchType.LAZY, cascade=CascadeType.PERSIST, orphanRemoval=true)
-	@OrderBy("postedOn DESC")
-	private List<BlogComment> comments = new ArrayList<>();
+    /** ID of the blog entry. */
+    @Id @GeneratedValue
+    private Long id;
 
-	/** Date on which this entry was created at. */
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=false)
-	private Date createdAt;
+    /** A list of blog comments on this entry. */
+    @OneToMany(mappedBy="blogEntry", fetch=FetchType.LAZY, cascade=CascadeType.PERSIST, orphanRemoval=true)
+    @OrderBy("postedOn DESC")
+    private List<BlogComment> comments = new ArrayList<>();
 
-	/** Date on which this entry was last modified at. */
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=true)
-	private Date lastModifiedAt;
+    /** Date on which this entry was created at. */
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable=false)
+    private Date createdAt;
 
-	/** Title of the blog entry. */
-	@Column(nullable=false, length=TITLE_LEN)
-	private String title;
+    /** Date on which this entry was last modified at. */
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable=true)
+    private Date lastModifiedAt;
 
-	/** Text of the blog entry. */
-	@Column(nullable=false, length=TEXT_LEN)
-	private String text;
+    /** Title of the blog entry. */
+    @Column(nullable=false, length=TITLE_LEN)
+    private String title;
 
-	/** Creator of the blog entry. */
-	@ManyToOne
-	private BlogUser creator;
-	
-	/**
-	 * Returns the ID of the blog entry.
-	 *
-	 * @return the ID of the blog entry
-	 */
-	public Long getId() {
-		return id;
-	}
-	
-	/**
-	 * Sets the ID of the blog entry.
-	 *
-	 * @param id the new ID of the blog entry
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
+    /** Text of the blog entry. */
+    @Column(nullable=false, length=TEXT_LEN)
+    private String text;
 
-	/**
-	 * Returns the list of blog comments on this entry.
-	 *
-	 * @return the list of blog comments on this entry
-	 */
-	public List<BlogComment> getComments() {
-		return comments;
-	}
-	
-	/**
-	 * Sets the list of blog comments on this entry.
-	 *
-	 * @param comments the new list of blog comments on this entry
-	 */
-	public void setComments(List<BlogComment> comments) {
-		this.comments = comments;
-	}
+    /** Creator of the blog entry. */
+    @ManyToOne
+    private BlogUser creator;
 
-	/**
-	 * Returns the date on which this entry was created at.
-	 *
-	 * @return the date on which this entry was created at
-	 */
-	public Date getCreatedAt() {
-		return createdAt;
-	}
+    /**
+     * Returns the ID of the blog entry.
+     *
+     * @return the ID of the blog entry
+     */
+    public Long getId() {
+        return id;
+    }
 
-	/**
-	 * Sets the date on which this entry was created at.
-	 *
-	 * @param createdAt the new date on which this entry was created at
-	 */
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
+    /**
+     * Sets the ID of the blog entry.
+     *
+     * @param id the new ID of the blog entry
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	/**
-	 * Returns the date on which this entry was last modified at.
-	 *
-	 * @return the date on which this entry was last modified at
-	 */
-	public Date getLastModifiedAt() {
-		return lastModifiedAt;
-	}
+    /**
+     * Returns the list of blog comments on this entry.
+     *
+     * @return the list of blog comments on this entry
+     */
+    public List<BlogComment> getComments() {
+        return comments;
+    }
 
-	/**
-	 * Sets the date on which this entry was last modified at.
-	 *
-	 * @param lastModifiedAt the new date on which this entry was last modified at
-	 */
-	public void setLastModifiedAt(Date lastModifiedAt) {
-		this.lastModifiedAt = lastModifiedAt;
-	}
+    /**
+     * Sets the list of blog comments on this entry.
+     *
+     * @param comments the new list of blog comments on this entry
+     */
+    public void setComments(List<BlogComment> comments) {
+        this.comments = comments;
+    }
 
-	/**
-	 * Returns the title of the blog entry.
-	 *
-	 * @return the title of the blog entry
-	 */
-	public String getTitle() {
-		return title;
-	}
+    /**
+     * Returns the date on which this entry was created at.
+     *
+     * @return the date on which this entry was created at
+     */
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 
-	/**
-	 * Sets the title of the blog entry.
-	 *
-	 * @param title the new title of the blog entry
-	 */
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    /**
+     * Sets the date on which this entry was created at.
+     *
+     * @param createdAt the new date on which this entry was created at
+     */
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
-	/**
-	 * Returns the text of the blog entry.
-	 *
-	 * @return the text of the blog entry
-	 */
-	public String getText() {
-		return text;
-	}
+    /**
+     * Returns the date on which this entry was last modified at.
+     *
+     * @return the date on which this entry was last modified at
+     */
+    public Date getLastModifiedAt() {
+        return lastModifiedAt;
+    }
 
-	/**
-	 * Sets the text of the blog entry.
-	 *
-	 * @param text the new text of the blog entry
-	 */
-	public void setText(String text) {
-		this.text = text;
-	}
-	
-	/**
-	 * Returns the creator of the blog entry.
-	 *
-	 * @return the creator of the blog entry
-	 */
-	public BlogUser getCreator() {
-		return creator;
-	}
+    /**
+     * Sets the date on which this entry was last modified at.
+     *
+     * @param lastModifiedAt the new date on which this entry was last modified at
+     */
+    public void setLastModifiedAt(Date lastModifiedAt) {
+        this.lastModifiedAt = lastModifiedAt;
+    }
 
-	/**
-	 * Sets the creator of the blog entry.
-	 *
-	 * @param creator the new creator of the blog entry
-	 */
-	public void setCreator(BlogUser creator) {
-		this.creator = creator;
-	}
+    /**
+     * Returns the title of the blog entry.
+     *
+     * @return the title of the blog entry
+     */
+    public String getTitle() {
+        return title;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
+    /**
+     * Sets the title of the blog entry.
+     *
+     * @param title the new title of the blog entry
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		BlogEntry other = (BlogEntry) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
+    /**
+     * Returns the text of the blog entry.
+     *
+     * @return the text of the blog entry
+     */
+    public String getText() {
+        return text;
+    }
+
+    /**
+     * Sets the text of the blog entry.
+     *
+     * @param text the new text of the blog entry
+     */
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    /**
+     * Returns the creator of the blog entry.
+     *
+     * @return the creator of the blog entry
+     */
+    public BlogUser getCreator() {
+        return creator;
+    }
+
+    /**
+     * Sets the creator of the blog entry.
+     *
+     * @param creator the new creator of the blog entry
+     */
+    public void setCreator(BlogUser creator) {
+        this.creator = creator;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        BlogEntry other = (BlogEntry) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
 }

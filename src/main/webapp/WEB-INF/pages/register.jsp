@@ -5,12 +5,12 @@
 <%
   Object nick = session.getAttribute("current.user.nick");
   boolean loggedIn = (nick != null);
-  
+
   String username;
   if (loggedIn) {
-	  username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
+      username = session.getAttribute("current.user.fn") + " " + session.getAttribute("current.user.ln");
   } else {
-	  username = "Anonymous";
+      username = "Anonymous";
   }
 %>
 
@@ -23,7 +23,7 @@
     <c:choose>
     <c:when test="<%= !loggedIn %>">
     <!-- When the user is not logged in -->
-	
+
     <h3>Registration form</h3>
     <form action="register" method="post">
 
@@ -36,7 +36,7 @@
       <c:if test="${form.hasError('ln')}">
       <div class="error"><c:out value="${form.getError('ln')}"/></div>
       </c:if><br>
-      
+
       Nickname <input type="text" name="nick" value='<c:out value="${form.nick}"/>' size="30">
       <c:if test="${form.hasError('nick')}">
       <div class="error"><c:out value="${form.getError('nick')}"/></div>
@@ -46,7 +46,7 @@
       <c:if test="${form.hasError('email')}">
       <div class="error"><c:out value="${form.getError('email')}"/></div>
       </c:if><br>
-      
+
       Password <input type="password" name="password" size="30">
       <c:if test="${form.hasError('password')}">
       <div class="error"><c:out value="${form.getError('password')}"/></div>
@@ -55,25 +55,25 @@
       <input type="submit" name="method" value="Submit">
 
     </form>
-    
+
     </c:when>
     <c:otherwise>
     <!-- When the user is not logged in -->
-    
+
     <h3>Already registered</h3>
     <p>Our data show that you are already registered and logged in. To register another account, please <a href="logout">log out</a>.</p>
-    
+
     </c:otherwise>
     </c:choose>
-	
-	
+
+
     <div id="toolbar">
       <p><%=username%></p>
       <p><a href="/blog/servleti/main">Home</a></p>
       <c:if test="<%= loggedIn %>">
       <p><a href="/blog/servleti/logout">Logout</a></p>
       </c:if>
-    </div>	
-    
+    </div>
+
   </body>
 </html>
