@@ -1,13 +1,12 @@
 package hr.fer.zemris.java.hw15.util;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
 import hr.fer.zemris.java.hw15.model.BlogComment;
 import hr.fer.zemris.java.hw15.model.BlogEntry;
 import hr.fer.zemris.java.hw15.model.BlogUser;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
+import java.util.List;
 
 /**
  * A form model that suits the web-representation of a blog entry domain object.

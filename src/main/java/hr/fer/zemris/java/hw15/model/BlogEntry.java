@@ -1,9 +1,5 @@
 package hr.fer.zemris.java.hw15.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,6 +15,9 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * This class represents a single blog entry. Instances of this class serve as

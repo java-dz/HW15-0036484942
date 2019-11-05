@@ -1,16 +1,15 @@
 package hr.fer.zemris.java.hw15.dao.jpa;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.TransactionRequiredException;
-
 import hr.fer.zemris.java.hw15.dao.DAO;
 import hr.fer.zemris.java.hw15.dao.DAOException;
 import hr.fer.zemris.java.hw15.model.BlogComment;
 import hr.fer.zemris.java.hw15.model.BlogEntry;
 import hr.fer.zemris.java.hw15.model.BlogUser;
+
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.TransactionRequiredException;
+import java.util.List;
 
 /**
  * This class is a concrete implementation of the {@linkplain DAO} interface. It

@@ -1,7 +1,8 @@
 package hr.fer.zemris.java.hw15.dao.jpa;
 
-import javax.persistence.EntityManager;
 import hr.fer.zemris.java.hw15.dao.DAOException;
+
+import javax.persistence.EntityManager;
 
 /**
  * This class is a commonly used <tt>JPA</tt> {@linkplain EntityManager}

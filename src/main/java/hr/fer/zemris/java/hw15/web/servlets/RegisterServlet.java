@@ -1,16 +1,15 @@
 package hr.fer.zemris.java.hw15.web.servlets;
 
-import java.io.IOException;
+import hr.fer.zemris.java.hw15.dao.DAOProvider;
+import hr.fer.zemris.java.hw15.model.BlogUser;
+import hr.fer.zemris.java.hw15.util.RegistrationForm;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import hr.fer.zemris.java.hw15.dao.DAOProvider;
-import hr.fer.zemris.java.hw15.model.BlogUser;
-import hr.fer.zemris.java.hw15.util.RegistrationForm;
+import java.io.IOException;
 
 /**
  * This servlet represents a registration page that offers a form for

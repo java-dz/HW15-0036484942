@@ -1,7 +1,5 @@
 package hr.fer.zemris.java.hw15.console;
 
-import java.util.Date;
-
 import hr.fer.zemris.java.hw15.model.BlogComment;
 import hr.fer.zemris.java.hw15.model.BlogEntry;
 import hr.fer.zemris.java.hw15.model.BlogUser;
@@ -10,6 +8,7 @@ import hr.fer.zemris.java.hw15.util.ServletUtil;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Date;
 
 
 //

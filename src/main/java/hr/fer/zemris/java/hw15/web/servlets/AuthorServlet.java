@@ -1,17 +1,5 @@
 package hr.fer.zemris.java.hw15.web.servlets;
 
-import static hr.fer.zemris.java.hw15.util.ServletUtil.parseLong;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.Objects;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import hr.fer.zemris.java.hw15.dao.DAOProvider;
 import hr.fer.zemris.java.hw15.model.BlogComment;
 import hr.fer.zemris.java.hw15.model.BlogEntry;
@@ -19,6 +7,17 @@ import hr.fer.zemris.java.hw15.model.BlogUser;
 import hr.fer.zemris.java.hw15.util.BlogCommentForm;
 import hr.fer.zemris.java.hw15.util.BlogEntryForm;
 import hr.fer.zemris.java.hw15.util.ServletUtil;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Date;
+import java.util.Objects;
+
+import static hr.fer.zemris.java.hw15.util.ServletUtil.parseLong;
 
 /**
  * This servlet represents multiple functions that are mapped to any URL,

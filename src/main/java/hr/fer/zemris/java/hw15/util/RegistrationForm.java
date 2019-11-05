@@ -1,9 +1,9 @@
 package hr.fer.zemris.java.hw15.util;
 
-import javax.servlet.http.HttpServletRequest;
-
 import hr.fer.zemris.java.hw15.dao.DAOProvider;
 import hr.fer.zemris.java.hw15.model.BlogUser;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * A form model that suits the web-representation of a registration form. This class

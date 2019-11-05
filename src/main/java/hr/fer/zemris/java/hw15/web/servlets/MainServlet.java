@@ -1,17 +1,16 @@
 package hr.fer.zemris.java.hw15.web.servlets;
 
-import java.io.IOException;
-import java.util.List;
+import hr.fer.zemris.java.hw15.dao.DAOProvider;
+import hr.fer.zemris.java.hw15.model.BlogUser;
+import hr.fer.zemris.java.hw15.util.LoginForm;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import hr.fer.zemris.java.hw15.dao.DAOProvider;
-import hr.fer.zemris.java.hw15.model.BlogUser;
-import hr.fer.zemris.java.hw15.util.LoginForm;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * This servlet represents the main page where users can log in, register and

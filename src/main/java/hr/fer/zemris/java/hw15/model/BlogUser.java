@@ -1,10 +1,5 @@
 package hr.fer.zemris.java.hw15.model;
 
-import static hr.fer.zemris.java.hw15.util.ServletUtil.EMAIL_LEN;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
+
+import static hr.fer.zemris.java.hw15.util.ServletUtil.EMAIL_LEN;
 
 /**
  * This class represents a single blog user. Instances of this class serve as

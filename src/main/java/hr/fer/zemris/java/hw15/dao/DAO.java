@@ -1,10 +1,10 @@
 package hr.fer.zemris.java.hw15.dao;
 
-import java.util.List;
-
 import hr.fer.zemris.java.hw15.model.BlogComment;
 import hr.fer.zemris.java.hw15.model.BlogEntry;
 import hr.fer.zemris.java.hw15.model.BlogUser;
+
+import java.util.List;
 
 /**
  * Interface that provides data persistence.

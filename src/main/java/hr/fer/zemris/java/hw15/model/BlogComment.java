@@ -1,9 +1,5 @@
 package hr.fer.zemris.java.hw15.model;
 
-import static hr.fer.zemris.java.hw15.util.ServletUtil.EMAIL_LEN;
-
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.util.Date;
+
+import static hr.fer.zemris.java.hw15.util.ServletUtil.EMAIL_LEN;
 
 /**
  * This class represents a single blog comment. Instances of this class serve as

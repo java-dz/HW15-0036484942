@@ -1,5 +1,3 @@
-<%@ page import="java.util.Objects"%>
-<%@ page import="hr.fer.zemris.java.hw15.model.BlogUser"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
