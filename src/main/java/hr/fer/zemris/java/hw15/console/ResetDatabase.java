@@ -3,7 +3,7 @@ package hr.fer.zemris.java.hw15.console;
 import hr.fer.zemris.java.hw15.model.BlogComment;
 import hr.fer.zemris.java.hw15.model.BlogEntry;
 import hr.fer.zemris.java.hw15.model.BlogUser;
-import hr.fer.zemris.java.hw15.util.ServletUtil;
+import hr.fer.zemris.java.hw15.util.PasswordUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -151,7 +151,7 @@ public class ResetDatabase {
         blogUser.setLastName("Perić");
         blogUser.setNick("perica");
         blogUser.setEmail("perica@peric.hr");
-        blogUser.setPasswordHash(ServletUtil.generatePasswordHash("perica"));
+        blogUser.setPasswordHash(PasswordUtil.generatePasswordHash("perica"));
 
         em.persist(blogUser);
 

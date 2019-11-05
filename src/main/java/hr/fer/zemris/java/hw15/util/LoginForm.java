@@ -41,7 +41,7 @@ public class LoginForm extends AbstractForm {
     public void fillFromHttpRequest(HttpServletRequest req) {
         nick = prepare(req.getParameter("nick"));
         password = prepare(req.getParameter("password"));
-        passwordHash = ServletUtil.generatePasswordHash(password);
+        passwordHash = PasswordUtil.generatePasswordHash(password);
     }
 
     /**

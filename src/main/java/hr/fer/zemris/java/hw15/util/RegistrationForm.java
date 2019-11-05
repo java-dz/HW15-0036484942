@@ -57,7 +57,7 @@ public class RegistrationForm extends AbstractForm {
         nick = prepare(req.getParameter("nick"));
         email = prepare(req.getParameter("email"));
         password = prepare(req.getParameter("password"));
-        passwordHash = ServletUtil.generatePasswordHash(password);
+        passwordHash = PasswordUtil.generatePasswordHash(password);
     }
 
     /**

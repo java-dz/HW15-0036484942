@@ -104,12 +104,6 @@
         <version>9.3.9.v20160517</version>
         <configuration>
           <scanIntervalSeconds>10</scanIntervalSeconds>
-          <connectors>
-            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-              <port>8080</port>
-              <maxIdleTime>60000</maxIdleTime>
-            </connector>
-          </connectors>
           <webApp>
             <contextPath>/blog</contextPath>
           </webApp>
